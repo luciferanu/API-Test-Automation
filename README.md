@@ -181,17 +181,7 @@ Skipped: 1
 ==================================
 ```
 
----
 
-## Future Enhancements
-
-- HTML test reporting
-- Response time validation
-- JSON schema validation
-- CSV/Excel-based test data
-- Additional authentication test scenarios
-
----
 
 ## Disclaimer
 
