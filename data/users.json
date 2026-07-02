@@ -1,0 +1,26 @@
+[
+  {
+    "run": true,
+    "username": "validUse",
+    "password": "ValidPassword123!",
+    "expected": true
+  },
+  {
+    "run": true,
+    "username": "invalidUser",
+    "password": "WrongPassword123!",
+    "expected": false
+  },
+  { 
+    "run": false,
+    "username": "disabledUser",
+    "password": "Password123!",
+    "expected": true
+  },
+  {
+    "run": true,
+    "username": "lockedUser",
+    "password": "Password123!",
+    "expected": false
+  }
+]
