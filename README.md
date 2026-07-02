@@ -1,22 +1,35 @@
-# API Test Automation Framework
+# API Test Automation
 
-A modular API automation framework built using **Node.js** and **Axios** for testing REST APIs. The framework follows a reusable and data-driven approach by separating test data, utility functions, and test scripts, making it easy to maintain and extend.
+A Node.js-based API automation project for testing REST APIs using **Axios**. The project demonstrates reusable utility functions, data-driven testing, password hashing, and environment-based configuration for automating an authentication workflow.
 
-> **Note:** This project uses sample data and environment variables. No confidential credentials or endpoints are included.
+> **Note:** This project uses sample data and placeholder environment variables. No confidential credentials, API endpoints, or organization-specific information are included.
+
+---
+
+## Project Overview
+
+This project automates a multi-step authentication workflow by:
+
+- Performing a User Lookup request
+- Generating a SHA-256 hash of the user's password
+- Authenticating through the Login API
+- Validating the API response
+- Displaying a summarized test execution report
+
+The project is organized using reusable modules and environment variables, making it easy to maintain and extend.
 
 ---
 
 ## Features
 
-- Modular framework architecture
-- Data-driven API testing
-- Environment-based configuration using `.env`
-- SHA-256 password hashing
+- Automated User Lookup API testing
 - Automated Login API testing
-- User Lookup API testing
-- Positive and negative test scenarios
-- Pass/Fail execution summary
-- Reusable utility functions
+- SHA-256 password hashing
+- Data-driven test execution using JSON
+- Positive and negative login scenarios
+- Environment variable configuration using `.env`
+- Modular utility-based architecture
+- Pass/Fail/Skipped execution summary
 
 ---
 
@@ -42,12 +55,13 @@ API-Test-Automation
 ├── .env.example
 ├── .gitignore
 ├── package.json
-└── package-lock.json
+├── package-lock.json
+└── README.md
 ```
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 - Node.js
 - JavaScript (ES6)
@@ -59,81 +73,80 @@ API-Test-Automation
 
 ## Installation
 
-Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/luciferanu/API-Test-Automation.git
 ```
 
-Install dependencies
+Navigate to the project directory:
+
+```bash
+cd API-Test-Automation
+```
+
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Create an environment file
-
-```text
-.env
-```
-
-using
-
-```text
-.env.example
-```
+Create a `.env` file using the provided `.env.example` template.
 
 ---
 
 ## Environment Variables
 
-Example
+Example configuration:
 
 ```env
 BASE_URL=https://your-api-endpoint
-
 PARTNER_ID=your-partner-id
-
 TENANT_ID=your-tenant-id
 ```
 
 ---
 
-## Running Tests
+## Running the Tests
 
 Run Login Test
 
 ```bash
-node tests/testLogin.js
+npm run login
 ```
 
 Run User Lookup Test
 
 ```bash
-node tests/testUlookup.js
+npm run lookup
 ```
 
 Run Plain Password Test
 
 ```bash
-node tests/testPlainPassword.js
+npm run plain
 ```
 
 Run Password Hash Test
 
 ```bash
-node tests/hashTest.js
+npm run hash
 ```
+
+Alternatively, individual test files can be executed using Node.js.
 
 ---
 
-## Framework Workflow
+## Authentication Workflow
 
 ```
 Read Test Data
         │
         ▼
 User Lookup API
+        │
+        ▼
+Receive Session ID
         │
         ▼
 Generate SHA-256 Password Hash
@@ -150,15 +163,39 @@ Display Test Summary
 
 ---
 
+## Sample Output
+
+```text
+========== LOGIN TEST EXECUTION ==========
+
+Testing user: validUser
+✓ PASS - Login Successful
+
+Testing user: invalidUser
+✓ PASS - Login Rejected
+
+========== TEST SUMMARY ==========
+Passed : 2
+Failed : 0
+Skipped: 1
+==================================
+```
+
+---
+
 ## Future Enhancements
 
-- HTML Reporting
-- JUnit XML Reports
-- CLI-based test execution
-- API response validation library
-- CI/CD integration using GitHub Actions
-- Newman/Postman collection support
-- Docker support
+- HTML test reporting
+- Response time validation
+- JSON schema validation
+- CSV/Excel-based test data
+- Additional authentication test scenarios
+
+---
+
+## Disclaimer
+
+This repository contains sample data and placeholder configuration values. Any confidential credentials, API endpoints, usernames, passwords, or organization-specific information have been removed prior to publication.
 
 ---
 
